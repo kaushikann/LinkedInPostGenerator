@@ -3,7 +3,7 @@ from openai import OpenAI
 import os
 
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
-
+client=OpenAI()
 #frontend code
 st.title("AI LinkedIn Post Generator")
 
@@ -28,7 +28,7 @@ if st.button("Generate LinkedIn Post"):
     Format it nicely for LinkedIn.
     """
     #backend code
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "user", "content": prompt_template}
