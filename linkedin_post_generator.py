@@ -28,7 +28,7 @@ if st.button("Generate LinkedIn Post"):
     Format it nicely for LinkedIn.
     """
     #backend code
-    response = chat.completions.create(
+    response = client.responses.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "user", "content": prompt_template}
